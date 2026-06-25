@@ -1,6 +1,4 @@
-<div align="center">
-  <img src="github.png" width="100">
-</div>
+![github](images/github.png)
 
 # Git e Github - Guia prático e rápido
 
@@ -66,3 +64,102 @@ Para mais informações sobre essa chave SSH, pode ler na [documentação](https
 
 ## Criando um repositório
 
+Na sua conta, clique no ícone verde “New" para criar um novo repositório.
+
+Na página de criação, você pode definir:
+
+- o nome do repositório,
+- uma descrição opcional,
+- se ele será público ou privado,
+- e se deseja iniciar com um README (não indico adicionar nesse momento, por enquanto).
+
+Após criar o repositório, o GitHub exibirá uma página com um tutorial de comandos básicos — é ali que aprendemos como conectar o repositório local (no nosso computador) com o repositório remoto (no GitHub).
+
+![new](images/create_repo.png)
+
+Em seguida, abriremos o terminal **dentro da pasta do projeto que queremos versionar** e executaremos os comandos mostrados, prestando atenção às configurações iniciais. Para entender o que cada comando faz, siga as próximas etapas.
+
+
+## Inicializando o Git no diretório
+
+Para inicializar o git, ou seja, para converter um diretório existente no computador em um repositório Git, usamos o seguinte comando:
+```bash
+git init
+```
+Dica: confira se você, de fato, está no diretório que você quer adicionar no github.
+
+Em seguida podemos ver o que tem dentro do repositório que ainda não foi para o repositório (como estamos iniciando agora, ele vai mostra tudo que tem dentro da pasta)
+```bash
+git status
+```
+
+Para adicionar os arquivos da nossa pasta local para o GitHub usamos:
+```bash
+git add <nome_do_arquivo_ou_pasta>
+```
+
+Ou então, podemos adicionar todos os arquivos:
+```bash
+git add .
+```
+Atenção: cuidado com o que você for adicionar aqui, evite adicionar dados grandes, porque o GitHub não suporta, ou dados sensíveis. Para ignorar esses arquivos/pastas que você não quer upar, tem um tópico falando sobre o gitignore mais a frente.
+
+Para registrar as nossas adições, usamos o comando abaixo, que vai indicar o nome do nosso registro
+
+```bash
+git commit -m "nome_do_commit"
+```
+
+O nome do commit deve trazer uma pequena descrição das alterações feitas no código. Existem [boas práticas e convenções](https://github.com/iuricode/padroes-de-commits) que ajudam a padronizar esses nomes, assim fica mais fácil visualizar o propósito de cada mudança no histórico do projeto. 
+
+A mensagem do commit ajuda, por exemplo, quando queremos voltar a um ponto específico do projeto, como antes de adicionar um filtro novo ou no momento em que integramos uma nova base de dados.
+
+exemplo: 
+
+```bash
+git commit -m "feat: adiciona etapa de normalização log2 nas contagens"
+```
+Essa palavra inicial não é obrigatório, é apenas uma boa prática.
+
+
+## O que é uma branch?
+Agora precisamos informar em qual branch, ou seja, em qual ramificação do projeto queremos adicionar o nosso commit.        Para entender isso, vale lembrar como o sistema de versionamento do Git funciona.
+![branch](images/branch.png)
+Por padrão, todo repositório começa com uma branch principal, chamada main. Ela representa a versão estável do projeto — geralmente aquela que está funcionando corretamente e que será disponibilizada para os usuários.
+
+Quando queremos fazer atualizações, corrigir erros ou testar novas funcionalidades sem correr o risco de quebrar o que já está funcionando, criamos novas branchs.
+
+Essas branchs são cópias da main em que podemos trabalhar de forma isolada. Assim, todas as mudanças feitas ali não afetam o código principal até que estejam prontas e testadas.
+
+Depois de revisar e testar tudo, podemos mesclar (merge) essa branch com a main, atualizando o projeto de forma segura.
+
+Para iniciar o repositório, vamos só confirmar que queremos iniciar na branch main
+```bash
+git branch -M main
+```
+
+#### Comandos extras para criar ou alterar branchs
+```bash
+git branch #para ver quais branchs existem
+git branch <nome_da_nova_branch> #para criar uma nova branch
+git checkout <nome_da_branch> #para alterar para outra branch
+
+# ou então, para criar e já mudar pra nova branch
+git switch -c <nova_branch>
+git checkout -b <nova_branch> 
+```
+
+## Agora, como conecta a pasta local com o repositório remoto?
+Para conectar nosso repositório local com o nosso repositório online, usamos a chave https ou ssh com o comando:
+```bash
+git remote add origin <url_do_repositorio>
+```
+
+Depois de fazermos o link, podemos enviar para o github com o comando:
+```bash
+git push -u origin main
+```
+esse comando acima só é usado para a primeira vez que fazemos upload para esse repositório, nos próximos podemos usar apenas:
+```bash
+git push
+```
