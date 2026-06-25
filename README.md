@@ -1,4 +1,7 @@
-![logogithub](github.png)
+<div align="center">
+  <img src="github.png" width="100">
+</div>
+
 # Git e Github - Guia prático e rápido
 
 ## O que é Git?
