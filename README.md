@@ -215,7 +215,7 @@ Para ligar o nosso repositório local ao repositório online, usamos a URL que o
 git remote add origin <url_do_repositorio>
 ```
 
-> 💡 Como configuramos uma **chave SSH** lá atrás, use a URL **SSH** (ela começa com `git@github.com:...`). A URL **HTTPS** (`https://github.com/...`) também funciona, mas aí o GitHub pode pedir login/token em vez da chave. As duas aparecem na página do repositório — é só escolher a aba certa.
+> Como configuramos uma **chave SSH** lá atrás, use a URL **SSH** (ela começa com `git@github.com:...`). A URL **HTTPS** (`https://github.com/...`) também funciona, mas aí o GitHub pode pedir login/token em vez da chave. As duas aparecem na página do repositório — é só escolher a aba certa.
 
 Feito o link, enviamos tudo para o GitHub com:
 
