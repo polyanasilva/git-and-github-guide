@@ -57,6 +57,12 @@ git config --global user.name "Seu Nome"
 
 > 💡 Use o mesmo e-mail da sua conta do GitHub. Assim os seus commits ficam corretamente vinculados ao seu perfil.
 
+Para confirmar que os dados foram foram salvos corretamente:
+
+```bash
+git config --list
+```
+
 ### Gerando a chave SSH
 
 Além disso, precisamos gerar uma **chave SSH** e adicioná-la no GitHub. Pense nela como um crachá: é o que permite o seu computador "provar" pro GitHub que é você, sem precisar digitar senha toda hora. Para gerar, digitamos no terminal:
@@ -196,6 +202,9 @@ git checkout <nome_da_branch>   # trocar para outra branch
 # ou então, para criar e já ir pra nova branch de uma vez:
 git switch -c <nova_branch>
 git checkout -b <nova_branch>
+
+# para deletar uma branch
+git branch -d <nome_da_branch>
 ```
 
 ## Conectando a pasta local com o repositório remoto
@@ -269,7 +278,7 @@ git pull origin main
 
 > 💡 **Dica importante:** sempre dê um `git pull` **antes** de começar a trabalhar. Isso evita conflitos chatos com o que outras pessoas já enviaram.
 
-## E quando dá conflito? (não entra em pânico)
+## E quando dá conflito? (Pânico)
 
 Por mais que você dê `git pull` direitinho, uma hora vai acontecer: você e outra pessoa editaram **a mesma parte do mesmo arquivo**, e o Git não sabe qual versão manter. Aí ele para tudo e te avisa que existe um **conflito de merge**. É normal, faz parte, e tem solução. 🙂
 
